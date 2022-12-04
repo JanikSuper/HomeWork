@@ -1,0 +1,166 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace HomeWork
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const string ConvertDollarToEuro = "1";
+            const string ConvertDollarToLira = "2";
+            const string ConvertEuroToDollar = "3";
+            const string ConvertEuroToLira = "4";
+            const string ConvertLiraToDollar = "5";
+            const string ConvertLiraToEuro = "6";
+            const string ExitComment = "7";
+            bool isWorking = true;
+            float dollarToEuro = 1;
+            float dollarToLira = 18;
+            float euroToDollar = dollarToEuro;
+            float euroToLira = dollarToLira;
+            float liraToDollar = 1 / dollarToLira;
+            float liraToEuro = 1 / euroToLira;
+            Console.WriteLine($"1 доллар = {dollarToEuro} евро, либо {dollarToLira} лиры" +
+                $"\n1 евро = {euroToDollar} долларов, либо {euroToLira} лиры" +
+                $"\n1 лира = {liraToDollar} долларов, либо {liraToEuro} евро");
+            Console.Write("Введите Ваш балланс долларов: ");
+            float dollarBalance = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите Ваш балланс евро: ");
+            float euroBalance = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите Ваш балланс лиры: ");
+            float liraBalance = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Выберете валютную операцию: ");
+            Console.WriteLine($"{ConvertDollarToEuro} - конвертация доллара в евро" +
+                $"\n{ConvertDollarToLira} - конвертация доллара в лиру" +
+                $"\n{ConvertEuroToDollar} - конвертация евро в доллары" +
+                $"\n{ConvertEuroToLira} - конвертация евро в лиру" +
+                $"\n{ConvertLiraToDollar} - конвертация лиры в доллары" +
+                $"\n{ConvertLiraToEuro} - конвертация лиры в евро" +
+                $"\n{ExitComment} - выход из программы.");
+ 
+            while (isWorking)
+            {
+                string userInput = Console.ReadLine();
+ 
+                switch (userInput)
+                {
+                    case ConvertDollarToEuro:
+                        float currencyCount;
+                        Console.WriteLine("Сколько долларов в евро Вы хотите обменять?");
+                        currencyCount = Convert.ToInt32(Console.ReadLine());
+ 
+                        if (currencyCount <= dollarBalance)
+                        {
+                            dollarBalance -= currencyCount;
+                            euroBalance += currencyCount * dollarToEuro;
+                            Console.WriteLine($"У Вас на счету {dollarBalance} долларов, {euroBalance} евро и {liraBalance} лиры.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("У Вас не хватает долларов.");
+                        }
+ 
+                        break;
+ 
+                    case ConvertDollarToLira:
+                        Console.WriteLine("Сколько долларов в лиры Вы хотите обменять?");
+                        currencyCount = Convert.ToInt32(Console.ReadLine());
+ 
+                        if (currencyCount <= dollarBalance)
+                        {
+                            dollarBalance -= currencyCount;
+                            liraBalance += currencyCount * dollarToLira;
+                            Console.WriteLine($"У Вас на счету {dollarBalance} долларов, {euroBalance} евро и {liraBalance} лиры.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("У Вас не хватает долларов.");
+                        }
+ 
+                        break;
+ 
+                    case ConvertEuroToDollar:
+                        Console.WriteLine("Сколько евро в доллары Вы хотите обменять?");
+                        currencyCount = Convert.ToInt32(Console.ReadLine());
+ 
+                        if (currencyCount <= euroBalance)
+                        {
+                            euroBalance -= currencyCount;
+                            dollarBalance += currencyCount * euroToDollar;
+                            Console.WriteLine($"У Вас на счету {dollarBalance} долларов, {euroBalance} евро и {liraBalance} лиры.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("У Вас не хватает евро.");
+                        }
+ 
+                        break;
+ 
+                    case ConvertEuroToLira:
+                        Console.WriteLine("Сколько евро в лиры Вы хотите обменять?");
+                        currencyCount = Convert.ToInt32(Console.ReadLine());
+ 
+                        if (currencyCount <= euroBalance)
+                        {
+                            euroBalance -= currencyCount;
+                            liraBalance += currencyCount * euroToLira;
+                            Console.WriteLine($"У Вас на счету {dollarBalance} долларов, {euroBalance} евро и {liraBalance} лиры.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("У Вас не хватает евро.");
+                        }
+ 
+                        break;
+ 
+                    case ConvertLiraToDollar:
+                        Console.WriteLine("Сколько лиры в доллары Вы хотите обменять?");
+                        currencyCount = Convert.ToInt32(Console.ReadLine());
+ 
+                        if (currencyCount <= liraBalance)
+                        {
+                            liraBalance -= currencyCount;
+                            dollarBalance += currencyCount * liraToDollar;
+                            Console.WriteLine($"У Вас на счету {dollarBalance} долларов, {euroBalance} евро и {liraBalance} лиры.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("У Вас не хватает лиры.");
+                        }
+ 
+                        break;
+ 
+                    case ConvertLiraToEuro:
+                        Console.WriteLine("Сколько лиры в евро Вы хотите обменять?");
+                        currencyCount = Convert.ToInt32(Console.ReadLine());
+ 
+                        if (currencyCount <= liraBalance)
+                        {
+                            liraBalance -= currencyCount;
+                            euroBalance += currencyCount * liraToEuro;
+                            Console.WriteLine($"У Вас на счету {dollarBalance} долларов, {euroBalance} евро и {liraBalance} лиры.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("У Вас не хватает лиры.");
+                        }
+ 
+                        break;
+ 
+                    case ExitComment:
+                        isWorking = false;
+                        break;
+                    default:
+                        Console.WriteLine("Будьте повнимательней пожалуйста.");
+                        break;
+ 
+                }
+            }
+ 
+        }
+    }
+}
