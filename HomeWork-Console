@@ -1,0 +1,158 @@
+using System;
+
+namespace HomeWorkProgram
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const string SetNameCommand = "1";
+            const string SetTextBackgroundColorCommand = "2";
+            const string SetConcoleColoreCommand = "3";
+            const string SetTextColoreCommand = "4";
+            const string ExitConsoleCommand = "5";
+            const string BlueColor = "синий";
+            const string GreenColor = "зелёный";
+            const string RedColor = "красный";
+            const string BlackColor = "чёрный";
+
+            bool isWorking = true;
+            string playerName;
+            Console.WriteLine($"Добро пожаловать в программу!" +
+                     $"\nВыберите действие: " +
+                     $"\n{SetNameCommand} - Установить имя" +
+                     $"\n{SetTextBackgroundColorCommand} - Изменить цвет текстового фона" +
+                     $"\n{SetConcoleColoreCommand} - Сменить цвет консоли" +
+                     $"\n{SetTextColoreCommand} - Сменить цвет текста" +
+                     $"\n{ExitConsoleCommand} - Выход из программы;");
+
+            while (isWorking)
+            {
+                string userInputMenu = Console.ReadLine();
+
+                switch (userInputMenu)
+                {
+                    case SetNameCommand:
+                        Console.WriteLine("Введите имя персонажа:");
+                        playerName = Console.ReadLine();
+                        Console.WriteLine($"Имя Вашего персонажа- {playerName}");
+                        break;
+
+                    case SetTextBackgroundColorCommand:
+                        Console.WriteLine("Выберите цвет фона для текста: " +
+                            $"\n{BlueColor}" +
+                            $"\n{GreenColor}" +
+                            $"\n{RedColor}" +
+                            $"\n{BlackColor}");
+                        string userColorText = Console.ReadLine().ToLower();
+
+                        if (userColorText == BlueColor)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                            Console.WriteLine($"Вы выбрали {BlueColor} цвет текстового фона");
+                        }
+                        else if (userColorText == GreenColor)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Green;
+                            Console.WriteLine($"Вы выбрали {GreenColor} цвет текстового фона");
+                        }
+                        else if (userColorText == RedColor)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.WriteLine($"Вы выбрали {RedColor} цвет текстового фона");
+                        }
+                        else if (userColorText == BlackColor)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.WriteLine($"Вы выбрали {BlackColor} цвет текстового фона");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Не верная команда");
+                        }
+
+                        break;
+
+                    case SetConcoleColoreCommand:
+                        Console.WriteLine("Выберите цвет фона консоли: " +
+                            $"\n{BlueColor}" +
+                            $"\n{GreenColor}" +
+                            $"\n{RedColor}" +
+                            $"\n{BlackColor}");
+                        userColorText = Console.ReadLine();
+
+                        if (userColorText == BlueColor)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                            Console.WriteLine($"Вы выбрали {BlueColor} цвет фона");
+                        }
+                        else if (userColorText == GreenColor)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Green;
+                            Console.WriteLine($"Вы выбрали {GreenColor} цвет фона");
+                        }
+                        else if (userColorText == RedColor)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.WriteLine($"Вы выбрали {RedColor} цвет фона");
+                        }
+                        else if (userColorText == BlackColor)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.WriteLine($"Вы выбрали {BlackColor} цвет фона");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Не верная команда");
+                        }
+
+                        Console.Clear();
+                        break;
+
+                    case SetTextColoreCommand:
+                        Console.WriteLine("Выберите цвет текста: " +
+                            $"\n{BlueColor}" +
+                            $"\n{GreenColor}" +
+                            $"\n{RedColor}" +
+                            $"\n{BlackColor}");
+                        userColorText = Console.ReadLine();
+
+                        if (userColorText == BlueColor)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            Console.WriteLine($"Вы выбрали {BlueColor} цвет текста");
+                        }
+                        else if (userColorText == GreenColor)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine($"Вы выбрали {GreenColor} цвет текста");
+                        }
+                        else if (userColorText == RedColor)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine($"Вы выбрали {RedColor} цвет текста");
+                        }
+                        else if (userColorText == BlackColor)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.WriteLine($"Вы выбрали {BlackColor} цвет текста");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Не верная команда");
+                        }
+
+                        break;
+
+                    case ExitConsoleCommand:
+                        isWorking = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Повнимательней пожалуйста");
+                        break;
+                }
+            }
+        }
+    }
+}
