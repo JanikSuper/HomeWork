@@ -1,0 +1,33 @@
+using System;
+ 
+namespace ConsoleName
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string name;
+            char symbol;
+            string line;
+            string frame = "";
+ 
+            Console.WriteLine("Введите имя: ");
+            name = Console.ReadLine();
+ 
+            Console.WriteLine("Введите символ: ");
+            symbol = Convert.ToChar(Console.Read());
+ 
+            line = $"{symbol} {name} {symbol}";
+ 
+            for (int i = 0; i < line.Length; i++) 
+            {
+                frame += symbol; 
+            }
+ 
+            Console.WriteLine(frame);
+            Console.WriteLine(line);
+            Console.WriteLine(frame);
+            Console.ReadKey();
+        }
+    }
+}
