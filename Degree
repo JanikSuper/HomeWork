@@ -1,0 +1,31 @@
+using System;
+ 
+namespace HomeWork
+{
+ 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            int maxValue = 1025;
+            int randomNumber = random.Next(maxValue);
+            int number = 2;
+            int foundNumber = number;
+            int countDegree = 1;
+ 
+            Console.WriteLine($"Случайное число: {randomNumber} ");
+ 
+            for (int i = number; i <= randomNumber; i*= number)
+            {
+                Console.WriteLine($"{number} в степени {countDegree} = {i}");
+                countDegree++;
+                foundNumber *= number;
+            }
+ 
+            Console.WriteLine($"{foundNumber} > {randomNumber}, где {foundNumber} это число {number} в степени {countDegree}");
+ 
+            Console.ReadKey();
+        }
+    }
+} 
